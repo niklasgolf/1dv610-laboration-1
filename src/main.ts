@@ -48,10 +48,13 @@ startButton.addEventListener('click', async () => {
     return;
   }
 
-  const name = nameInput.value;
+  const name = nameInput.value.trim();
+  if (name === '') {
+    return;
+  }
   const startTime = Date.now();
-  const x = Math.random() * 100;
-  const y = Math.random() * 100;
+  const x = Math.random() * 85;
+  const y = Math.random() * 85;
 
   const visitorId = await convex.mutation(api.visitors.createVisitor, {
     name,
