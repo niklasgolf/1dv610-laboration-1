@@ -1,6 +1,7 @@
 import './style.css'
 import { ConvexClient } from "convex/browser";
 import { api } from "../convex/_generated/api";
+import type { Id } from "../convex/_generated/dataModel";
 
 const convex = new ConvexClient(import.meta.env.VITE_CONVEX_URL);
 
@@ -38,7 +39,7 @@ const startButton = document.querySelector<HTMLButtonElement>('#start-button')!;
 const stopButton = document.querySelector<HTMLButtonElement>('#stop-button')!;
 const visitorArea = document.querySelector<HTMLElement>('.visitor-area')!;
 
-let currentVisitorId: string | null = null;
+let currentVisitorId: Id<"visitors"> | null = null;
 
 startButton.addEventListener('click', async () => {
 
