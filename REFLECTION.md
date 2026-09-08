@@ -6,21 +6,25 @@
 
 Måndag 7 september 13:15 Svar: Jag lärde mig **JavaScript förra året** och tycker därför att det är ett naturligt nästa steg att försöka programmera så mycket som möjligt i **TypeScript**. Jag kan bygga vidare på det jag redan kan samtidigt som jag lär mig att arbeta med **typer, tydligare struktur och bättre felkontroll**. TypeScript känns också särskilt relevant eftersom vi nu ska arbeta mer med **objektorienterad programmering**, och jag vill bli van vid att använda det som mitt huvudsakliga programmeringsspråk när det passar.
 
+Tisdag 8 september 19:45 Svar: Det mest utmanande var egentligen inte själva programmeringen utan att förstå hur alla delar runt programmet hänger ihop: **Vite → TypeScript → Convex → development/production → Vercel → två datorer → samma databas i realtid.** Det blev en del trixande med **environment variables och `.env`-filer**, och framför allt med att förstå vilken Convex-databas som användes i development respektive production och hur databasen kopplades ihop med resten av applikationen. I början var det lite svårt att få en tydlig bild av hur frontend, databasen och den publicerade sidan kommunicerade med varandra. När jag till slut kunde öppna den publicerade sidan på två olika datorer och se att det jag gjorde på den ena datorn direkt syntes på den andra blev det mycket tydligare hur alla delarna hänger ihop och hur en realtidsapplikation faktiskt fungerar.
+
 ## 2. Arbetsflödet
 
 *Hur kändes det att arbeta med Git och använda kursens plattformar?*
 
-Svar:
+Tisdag 8 september 19:45 Svar: Jag har arbetat med Git tidigare. Det har känts bra och Git-historiken har blivit en loggbok över hur programmet har vuxit fram. Det som var lite förvirrande i början var att hålla isär **GitHub, kursens GitLab och de olika remotes som finns i mitt lokala repository**. När jag väl förstod att samma lokala projekt kan pushas till både GitHub och LNU:s GitLab blev arbetsflödet mycket tydligare.
 
 *Varför valde du GitLab eller GitHub för din kod? Vad vägde du in — till exempel integritet, att bygga en publik portfolio, eller vana? Om GitHub — länk till ditt repo:*
 
-Svar:
+Tisdag 8 september 19:45 Svar: Jag valde **GitHub** som den plats där jag arbetar med och kontinuerligt pushar min kod. Samtidigt använder jag **LNU:s GitLab för själva inlämningen**. Mitt GitHub-repository är:
+
+[github.com/niklasgolf/1dv610-laboration-1](https://github.com/niklasgolf/1dv610-laboration-1)
 
 ## 3. Bedömning och att dela publikt
 
 *Uppgiften bedöms inte på kodens stil eller kvalitet, bara på en komplett inlämning. Påverkade det hur du arbetade? Och hur kändes det att posta din skärmdump/video publikt i Zulip, utan möjlighet att göra det privat?*
 
-Svar:
+Tisdag 8 september 21:00 Svar: Jag tror egentligen inte att det påverkade mig så mycket att kodens stil och kvalitet inte bedöms. Jag ville ändå göra något som jag tyckte var roligt och där jag kunde lära mig nya saker med TypeScript, Convex, realtidsuppdateringar och publicering på Vercel. Jag lade också ganska mycket tid på att förstå hur allt fungerade. Att lägga upp resultatet publikt i Zulip kändes bra. I mitt fall blev det extra kul eftersom jag kunde länka till den publicerade appen, så att de andra studenterna faktiskt kan testa den. Om flera går in samtidigt kan de dessutom se varandra i realtid, vilket visar en viktig del av det jag har byggt.
 
 ## 4. Ditt program
 
@@ -30,7 +34,9 @@ Måndag 7 september 13:15 Svar: Jag valde **TypeScript** eftersom jag tycker att
 
 *Vad gjorde du för att göra välkomstmeddelandet till något mer än bara* `"Hej " + namn`*?*
 
-Svar:
+Tisdag 8 september 19:45 Svar: Jag gjorde välkomstmeddelandet till en liten **realtidsapplikation** istället för att bara visa `"Hej " + namn`. När en person skriver sitt namn och trycker på **Start** skapas en besökare i en **Convex-databas** och visas som en liten ruta på sidan med sitt namn och hur många sekunder personen har varit där. Besökarna får slumpmässiga positioner och antalet personer online visas högst upp. Eftersom Convex uppdaterar sidan i realtid kan jag öppna den publicerade sidan på **två olika datorer** och direkt se på båda när en ny person ansluter eller trycker på **Stop** och försvinner.
+
+**Testa appen:** [https://1dv610-laboration-1.vercel.app/](https://1dv610-laboration-1.vercel.app/)
 
 ## 5. AI-samarbete
 
@@ -47,3 +53,5 @@ Jag fick tillbaka ett par sidor text med väldigt tydliga förklaringar av typ v
 *Bifoga (eller länka till) samma skärmdump/video som du postat i Zulip.*
 
 Svar:
+
+![Skärmdump av programmet](screenshots/skarmdump.png)
