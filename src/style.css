@@ -1,7 +1,7 @@
 :root {
   font-family: Arial, Helvetica, sans-serif;
   color: #243126;
-  background: #f4f0e6;
+  background: #f3efe6;
 }
 
 * {
@@ -15,33 +15,169 @@ body {
 }
 
 body {
-  background: #f4f0e6;
+  background:
+    linear-gradient(
+      180deg,
+      #eef3e8 0%,
+      #f7f4ec 38%,
+      #faf8f3 100%
+    );
+}
+
+button,
+input {
+  font: inherit;
 }
 
 #app {
   min-height: 100vh;
+  padding: 20px;
 }
+
+/* -------------------------
+   CONTROL BAR
+------------------------- */
 
 .control-bar {
-  min-height: 110px;
-  padding: 24px 32px;
-  background: #dfe8d8;
-  border-bottom: 1px solid #b8c6ae;
+  min-height: 96px;
+  padding: 20px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  background: rgba(223, 232, 216, 0.95);
+
+  border: 1px solid #c7d2bf;
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 24px rgba(55, 73, 57, 0.10),
+    0 2px 6px rgba(55, 73, 57, 0.06);
 }
 
-.control-bar p {
-  margin: 0;
-  font-size: 1.1rem;
+.controls-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#name-input {
+  width: 220px;
+  padding: 12px 14px;
+
+  color: #28352a;
+  background: #fffdf8;
+
+  border: 1px solid #b8c6ae;
+  border-radius: 12px;
+
+  outline: none;
+
+  box-shadow: inset 0 1px 2px rgba(50, 60, 45, 0.05);
+}
+
+#name-input:focus {
+  border-color: #71886b;
+  box-shadow:
+    0 0 0 3px rgba(113, 136, 107, 0.15),
+    inset 0 1px 2px rgba(50, 60, 45, 0.05);
+}
+
+button {
+  padding: 11px 18px;
+
+  border: none;
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+#start-button {
+  color: white;
+  background: #667f60;
+
+  box-shadow: 0 4px 10px rgba(74, 98, 69, 0.18);
+}
+
+#start-button:hover {
+  background: #587151;
+  transform: translateY(-1px);
+
+  box-shadow: 0 6px 14px rgba(74, 98, 69, 0.22);
+}
+
+#stop-button {
+  color: #664841;
+  background: #eee3dc;
+
+  border: 1px solid #dac8bd;
+}
+
+#stop-button:hover {
+  background: #e6d7cd;
+  transform: translateY(-1px);
+}
+
+/* -------------------------
+   STATUS
+------------------------- */
+
+.status-area {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 10px 14px;
+
+  background: rgba(255, 255, 255, 0.45);
+
+  border: 1px solid rgba(149, 168, 139, 0.45);
+  border-radius: 12px;
+}
+
+.connection-status {
+  color: #4f704d;
   font-weight: 600;
 }
 
+.visitor-count {
+  color: #66715f;
+}
+
+/* -------------------------
+   VISITOR AREA
+------------------------- */
+
 .visitor-area {
-  min-height: calc(100vh - 110px);
+  position: relative;
+
+  min-height: calc(100vh - 156px);
+
+  margin-top: 18px;
   padding: 32px;
-  background: #faf8f2;
+
+  background: rgba(255, 253, 248, 0.92);
+
+  border: 1px solid #ddd8cb;
+  border-radius: 22px;
+
+  box-shadow:
+    0 12px 30px rgba(82, 74, 58, 0.08),
+    0 2px 8px rgba(82, 74, 58, 0.04);
+
+  overflow: hidden;
 }
 
 .visitor-area p {
   margin: 0;
-  color: #66715f;
+
+  color: #8a9185;
+  font-size: 0.95rem;
 }
