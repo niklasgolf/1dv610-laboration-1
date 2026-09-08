@@ -35,8 +35,17 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 const nameInput = document.querySelector<HTMLInputElement>('#name-input')!;
 const startButton = document.querySelector<HTMLButtonElement>('#start-button')!;
+const stopButton = document.querySelector<HTMLButtonElement>('#stop-button')!;
+const visitorArea = document.querySelector<HTMLElement>('.visitor-area')!;
+
+let currentVisitorId: string | null = null;
 
 startButton.addEventListener('click', async () => {
+
+  if (currentVisitorId) {
+    return;
+  }
+
   const name = nameInput.value;
   const startTime = Date.now();
   const x = Math.random() * 100;
@@ -48,6 +57,32 @@ startButton.addEventListener('click', async () => {
     x,
     y,
   });
+  
+  currentVisitorId = visitorId;
 
   console.log(visitorId);
+});
+
+stopButton.addEventListener('click', async () => {
+  if (!currentVisitorId) {
+    return;
+  }
+
+  await convex.mutation(api.visitors.removeVisitor, {
+    id: currentVisitorId,
+  });
+
+  currentVisitorId = null;
+});
+
+convex.onUpdate(api.visitors.getVisitors, {}, (visitors) => {
+  visitorArea.innerHTML = '';
+
+  visitors.forEach((visitor) => {
+    const visitorDiv = document.createElement('div');
+
+    visitorDiv.textContent = visitor.name;
+
+    visitorArea.appendChild(visitorDiv);
+  });
 });

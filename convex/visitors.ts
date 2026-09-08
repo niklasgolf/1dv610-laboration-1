@@ -1,4 +1,4 @@
-import { mutation } from "./_generated/server";
+import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
 
 export const createVisitor = mutation({
@@ -20,3 +20,21 @@ export const createVisitor = mutation({
     return visitor;
   },
 });
+
+export const getVisitors = query({
+    args: {},
+  
+    handler: async (ctx) => {
+      return await ctx.db.query("visitors").collect();
+    },
+  });
+
+export const removeVisitor = mutation({
+    args: {
+      id: v.id("visitors"),
+    },
+  
+    handler: async (ctx, args) => {
+      await ctx.db.delete(args.id);
+    },
+  });
