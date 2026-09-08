@@ -38,6 +38,7 @@ const nameInput = document.querySelector<HTMLInputElement>('#name-input')!;
 const startButton = document.querySelector<HTMLButtonElement>('#start-button')!;
 const stopButton = document.querySelector<HTMLButtonElement>('#stop-button')!;
 const visitorArea = document.querySelector<HTMLElement>('.visitor-area')!;
+const visitorCount = document.querySelector<HTMLSpanElement>('.visitor-count')!;
 
 let currentVisitorId: Id<"visitors"> | null = null;
 
@@ -80,6 +81,7 @@ let currentVisitors: any[] = [];
 
 function renderVisitors() {
   visitorArea.innerHTML = '';
+  visitorCount.textContent = `${currentVisitors.length} ${currentVisitors.length === 1 ? 'visitor' : 'visitors'} online`;
 
   currentVisitors.forEach((visitor) => {
     const visitorDiv = document.createElement('div');
