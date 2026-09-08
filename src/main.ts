@@ -75,14 +75,35 @@ stopButton.addEventListener('click', async () => {
   currentVisitorId = null;
 });
 
-convex.onUpdate(api.visitors.getVisitors, {}, (visitors) => {
+let currentVisitors: any[] = [];
+
+function renderVisitors() {
   visitorArea.innerHTML = '';
 
-  visitors.forEach((visitor) => {
+  currentVisitors.forEach((visitor) => {
     const visitorDiv = document.createElement('div');
 
-    visitorDiv.textContent = visitor.name;
+    visitorDiv.className = 'visitor';
+
+    visitorDiv.style.left = `${visitor.x}%`;
+    visitorDiv.style.top = `${visitor.y}%`;
+
+    const seconds = Math.floor((Date.now() - visitor.startTime) / 1000);
+
+    visitorDiv.innerHTML = `
+      <div>${visitor.name}</div>
+      <div>${seconds} s</div>
+    `;
 
     visitorArea.appendChild(visitorDiv);
   });
+}
+
+convex.onUpdate(api.visitors.getVisitors, {}, (visitors) => {
+  currentVisitors = visitors;
+  renderVisitors();
 });
+
+setInterval(() => {
+  renderVisitors();
+}, 1000);
